@@ -6,7 +6,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "CS3203 Team02",
+  title: "CS3203 Team02 Documentation",
   tagline: "Documentation for Static Program Analyzer for SIMPLE",
   favicon: "img/favicon.ico",
 
