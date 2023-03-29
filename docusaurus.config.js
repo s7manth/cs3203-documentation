@@ -8,7 +8,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
   title: "CS3203 Team02 Documentation",
   tagline: "Documentation for Static Program Analyzer for SIMPLE",
-  favicon: "img/favicon.ico",
+  favicon: "img/square.svg",
 
   // Set the production url of your site here
   url: "https://your-docusaurus-test-site.com",
@@ -67,7 +67,7 @@ const config = {
         title: "CS3203 Team02",
         logo: {
           alt: "My Site Logo",
-          src: "img/logo.svg",
+          src: "img/icon.svg",
         },
         items: [
           {
