@@ -64,7 +64,7 @@ const config = {
       // Replace with your project's social card
       image: "img/docusaurus-social-card.jpg",
       navbar: {
-        title: "CS3203 Team02",
+        title: "CS3203 Team02 Documentation",
         logo: {
           alt: "My Site Logo",
           src: "img/icon.svg",
