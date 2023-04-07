@@ -1,0 +1,24 @@
+.charts_page {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    flex-wrap: wrap;
+}
+
+.column_chart {
+    height: 60vh;
+    width: 45vw;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px gainsboro;
+}
+
+.pie_chart {
+    height: 70vh;
+    width: 45vw;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px gainsboro;
+}
+
+.caption {
+    padding: 1rem;
+}
