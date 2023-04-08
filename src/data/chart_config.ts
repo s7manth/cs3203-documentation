@@ -31,7 +31,7 @@ export const COLUMN_OPTION = {
     },
   },
   xaxis: {
-    type: 'datetime',
+    type: 'string',
     categories: COLUMN_X_AXIS,
   },
   legend: {
