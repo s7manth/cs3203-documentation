@@ -13,7 +13,7 @@
 }
 
 .pie_chart {
-    height: 70vh;
+    height: auto;
     width: 45vw;
     border-radius: 5px;
     box-shadow: 1px 1px 10px gainsboro;
