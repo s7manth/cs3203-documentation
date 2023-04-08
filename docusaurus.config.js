@@ -76,7 +76,7 @@ const config = {
             position: "left",
             label: "Documentation",
           },
-          // { to: "/charts", label: "Charts", position: "left" },
+          { to: "/charts", label: "Charts", position: "left" },
           // {
           //   href: "https://github.com/facebook/docusaurus",
           //   label: "GitHub",
