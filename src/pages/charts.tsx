@@ -20,10 +20,10 @@ const Charts = () => {
                 <PieChart />
                 <div className={styles.caption}>Unit Test Breakdown</div>
               </div>
-              <div className={styles.column_chart}>
+              {/* <div className={styles.column_chart}>
                 <ColumnChart />
                 <div className={styles.caption}>Caption goes here</div>
-              </div>
+              </div> */}
             </div>
           </Layout>
         )
