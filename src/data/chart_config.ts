@@ -17,8 +17,9 @@ export const COLUMN_OPTION = {
   ],
   plotOptions: {
     bar: {
+      columnWidth: '35%',
       horizontal: false,
-      borderRadius: 10,
+      borderRadius: 5,
       dataLabels: {
         total: {
           enabled: true,
@@ -41,6 +42,17 @@ export const COLUMN_OPTION = {
   fill: {
     opacity: 1,
   },
+  colors: ['#123522', '#2e8555', '#60c88e'],
+  dropShadow: {
+    enabled: false,
+  },
+  background: {
+    dropShadow: false,
+  },
+  title: {
+    text: 'Test Cases Over Milestones',
+    align: 'left',
+  }
 }
 
 export const PIE_OPTION = {
@@ -54,4 +66,25 @@ export const PIE_OPTION = {
       },
     },
   ],
+  colors: ['#123522', '#2e8555', '#60c88e', '#9eddba'],
+  plotOptions: {
+    pie: {
+      expandOnClick: false,
+      customScale: 0.7,
+      donut: {
+        size: '70%',
+        labels: {
+          show: true,
+          total: {
+            show: true,
+            label: 'Total'
+          }
+        }
+      }
+    }
+  },
+  title: {
+    text: 'Unit Test Breakdown',
+    align: 'left',
+  }
 }

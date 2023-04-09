@@ -6,15 +6,15 @@ export const COLUMN_X_AXIS = [
 
 export const COLUMN_SERIES_DATA = [
   {
-    name: 'Unit Test',
+    name: 'Unit Tests',
     data: [384, 724, 802],
   },
   {
-    name: 'Integration Test',
+    name: 'Integration Tests',
     data: [38, 124, 286],
   },
   {
-    name: 'System Test',
+    name: 'System Tests',
     data: [277, 786, 1750],
   },
 ]
