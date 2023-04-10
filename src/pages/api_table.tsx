@@ -10,7 +10,7 @@ const Charts = () => {
       {() => {
         const Layout = require('@theme/Layout').default
         const CollapsibleTable = require('../components/Table/Table').default
-        const outer_colum_names = ['Component', '']
+        const outer_colum_names = ['Component', 'Count']
 
         return (
           <Layout title={`Charts for tests`} description="">

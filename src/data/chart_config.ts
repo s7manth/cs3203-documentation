@@ -1,6 +1,6 @@
-import { COLUMN_X_AXIS, PIE_LABELS } from './test'
+import { COLUMN_X_AXIS_TEST_STATS, COLUMN_X_AXIS_COVERAGE, PIE_LABELS } from './test'
 
-export const COLUMN_OPTION = {
+export const COLUMN_OPTION_TEST_STATS = {
   chart: {
     stacked: true,
     toolbar: {
@@ -33,7 +33,7 @@ export const COLUMN_OPTION = {
   },
   xaxis: {
     type: 'string',
-    categories: COLUMN_X_AXIS,
+    categories: COLUMN_X_AXIS_TEST_STATS,
   },
   legend: {
     position: 'right',
@@ -51,6 +51,61 @@ export const COLUMN_OPTION = {
   },
   title: {
     text: 'Test Cases Over Milestones',
+    align: 'left',
+  }
+}
+
+export const COLUMN_OPTION_COVERAGE = {
+  chart: {
+    stacked: false,
+    toolbar: {
+      show: true,
+    },
+    zoom: {
+      enabled: true,
+    },
+  },
+  responsive: [
+    {
+      breakpoint: 480,
+    },
+  ],
+  plotOptions: {
+    bar: {
+      columnWidth: '35%',
+      horizontal: false,
+      borderRadius: 5,
+      dataLabels: {
+        total: {
+          enabled: true,
+          style: {
+            fontSize: '13px',
+            fontWeight: 900,
+          },
+        },
+      },
+    },
+  },
+  xaxis: {
+    type: 'string',
+    categories: COLUMN_X_AXIS_COVERAGE,
+  },
+  legend: {
+    position: 'right',
+    offsetY: 40,
+  },
+  fill: {
+    opacity: 1,
+  },
+  colors: ['#123522', '#60c88e'],
+  dropShadow: {
+    enabled: false,
+  },
+  background: {
+    dropShadow: false,
+  },
+  title: {
+    text: 'Coverage Across Components',
     align: 'left',
   }
 }

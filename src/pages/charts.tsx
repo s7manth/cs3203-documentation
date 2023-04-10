@@ -2,6 +2,13 @@ import React from 'react'
 import styles from './charts.module.css'
 import BrowserOnly from '@docusaurus/BrowserOnly'
 
+import { COLUMN_OPTION_TEST_STATS } from '@site/src/data/chart_config'
+import { COLUMN_SERIES_DATA_TEST_STATS } from '@site/src/data/test'
+
+import { COLUMN_OPTION_COVERAGE } from '@site/src/data/chart_config'
+import { COLUMN_SERIES_DATA_COVERAGE } from '@site/src/data/test'
+
+
 const Charts = () => {
   return (
     <BrowserOnly>
@@ -59,13 +66,13 @@ const Charts = () => {
               </div>
               <br></br>
               <div className={styles.column_chart}>
-                <ColumnChart />
+                <ColumnChart COLUMN_OPTION={COLUMN_OPTION_TEST_STATS} COLUMN_SERIES_DATA={COLUMN_SERIES_DATA_TEST_STATS} />
                 {/* <div className={styles.caption}>Test Cases Over Milestones</div> */}
               </div>
-              {/* <div className={styles.column_chart}>
-                <ColumnChart />
-                <div className={styles.caption}>Caption goes here</div>
-              </div> */}
+              <div className={styles.column_chart}>
+                <ColumnChart COLUMN_OPTION={COLUMN_OPTION_COVERAGE} COLUMN_SERIES_DATA={COLUMN_SERIES_DATA_COVERAGE} />
+                {/* <div className={styles.caption}>Caption goes here</div> */}
+              </div>
             </div>
             </div>
           </Layout>

@@ -291,6 +291,7 @@ const SP_SUBROWS: SubRow[] = [
 
 const SP_ROW: DataRow = {
   component: 'SP',
+  count: 41,
   subRowHeaders: SUBROW_HEADERS,
   subrows: SP_SUBROWS,
 }
@@ -1176,6 +1177,7 @@ const PKB_SUBROWS: SubRow[] = [
 
 const PKB_ROW: DataRow = {
   component: 'PKB',
+  count: 146,
   subRowHeaders: SUBROW_HEADERS,
   subrows: PKB_SUBROWS,
 }
@@ -1257,6 +1259,7 @@ const QPS_SUBROWS: SubRow[] = [
 
 const QPS_ROW: DataRow = {
   component: 'QPS',
+  count: 12,
   subRowHeaders: SUBROW_HEADERS,
   subrows: QPS_SUBROWS,
 }

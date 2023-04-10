@@ -16,7 +16,8 @@ import { ThemeProvider, createTheme, makeStyles } from '@mui/material'
 import { useColorMode } from '@docusaurus/theme-common'
 
 export interface DataRow {
-  component: string
+  component: string,
+  count: number,
   subRowHeaders: string[]
   subrows: SubRow[]
 }
@@ -49,6 +50,9 @@ function Row(props: { row: DataRow }) {
         </TableCell>
         <TableCell component="th" scope="row">
           {row.component}
+        </TableCell>
+        <TableCell component="th" scope="row">
+          {row.count} Endpoint(s)
         </TableCell>
         {/* <TableCell align="right">{row.calories}</TableCell>
         <TableCell align="right">{row.fat}</TableCell>
@@ -126,7 +130,7 @@ export default function CollapsibleTable({
               <TableCell />
               {outer_column_names.map((name, i) => {
                 return (
-                  <TableCell align={`${i != 0 ? 'right' : 'center'}`}>
+                  <TableCell align={`${i > 1 ? 'right' : 'center'}`}>
                     {name}
                   </TableCell>
                 )
