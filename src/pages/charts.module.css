@@ -1,37 +1,37 @@
 .totality {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .text_before_charts {
-    padding-top: 2rem;
-    width: 60%;
-    margin-left: 5%;
+  padding-top: 2rem;
+  width: 60%;
+  margin-left: 5%;
 }
 
 .charts_page {
-    display: flex;
-    justify-content: center;
-    padding: 2rem;
-    flex-wrap: wrap; 
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .column_chart {
-    height: 60vh;
-    width: 45vw;
-    border-radius: 5px;
-    /* box-shadow: 1px 1px 10px gainsboro; */
+  height: 60vh;
+  width: 45vw;
+  border-radius: 5px;
+  /* box-shadow: 1px 1px 10px gainsboro; */
 }
 
 .pie_chart {
-    height: auto;
-    width: 35vw;
-    border-radius: 5px;
-    /* box-shadow: 1px 1px 10px gainsboro; */
+  height: auto;
+  width: 35vw;
+  border-radius: 5px;
+  /* box-shadow: 1px 1px 10px gainsboro; */
 }
 
 .caption {
-    padding-top: 1rem;
+  padding-top: 1rem;
 }
