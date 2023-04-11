@@ -14,10 +14,10 @@ const FeatureList: FeatureItem[] = [
     description: (
       <>
         <div>
-        <a href="https://github.com/srj31">Sourabh Raj Jaiswal</a>
+          <a href="https://github.com/srj31">Sourabh Raj Jaiswal</a>
         </div>
         <div>
-        <a href="https://github.com/flairekq">Yong Kai Qi</a>
+          <a href="https://github.com/flairekq">Yong Kai Qi</a>
         </div>
       </>
     ),
@@ -27,10 +27,10 @@ const FeatureList: FeatureItem[] = [
     description: (
       <>
         <div>
-        <a href="https://github.com/naranghardik16">Hardik Narang</a>
+          <a href="https://github.com/naranghardik16">Hardik Narang</a>
         </div>
         <div>
-        <a href="https://github.com/s7manth">Sumanth Yalamarty</a>
+          <a href="https://github.com/s7manth">Sumanth Yalamarty</a>
         </div>
       </>
     ),
@@ -40,10 +40,10 @@ const FeatureList: FeatureItem[] = [
     description: (
       <>
         <div>
-        <a href="https://github.com/hanhuiice">Wu HanHui</a>
+          <a href="https://github.com/hanhuiice">Wu HanHui</a>
         </div>
         <div>
-        <a href="https://github.com/isabelteo">Isabel Teo Jing Lin</a>
+          <a href="https://github.com/isabelteo">Isabel Teo Jing Lin</a>
         </div>
       </>
     ),
@@ -65,10 +65,10 @@ export default function HomepageFeatures(): JSX.Element {
   return (
     <section className={styles.features}>
       <div className="container">
-      <div className="text--center padding-horiz--md">
-        <h2>Components and Team Members</h2>
-      </div>
-      <hr></hr>
+        <div className="text--center padding-horiz--md">
+          <h2>Components and Team Members</h2>
+        </div>
+        <hr></hr>
         <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />

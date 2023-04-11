@@ -8,11 +8,11 @@ Last Updated: 20th March 2023
 
 ## Plan for Milestone 3
 
-For Milestone 3, we are planning to complete the implementation of Advanced SPA alongside an increased focus on testing and benchmarking the code for efficiency. 
+For Milestone 3, we are planning to complete the implementation of Advanced SPA alongside an increased focus on testing and benchmarking the code for efficiency.
 
 **Objectives**
 
-- Completion of Affects/Affects* relation extraction and relevant API
+- Completion of Affects/Affects\* relation extraction and relevant API
 - Continuation of the testing strategy used in Milestone 1 & 2
 - Increased testing by covering more aspects, especially branch coverage
 - Improve on Integration testing to check for all API methods before components
@@ -23,25 +23,25 @@ For Milestone 3, we are planning to complete the implementation of Advanced SPA 
 
 ### Definition of the Extension
 
-We are planning to introduce the `Dominates/Dominates*` design abstraction to SIMPLE language. The respective abstractions are defined as follows: 
+We are planning to introduce the `Dominates/Dominates*` design abstraction to SIMPLE language. The respective abstractions are defined as follows:
 
-`Dominates(s1, s2)` and `Dominates*(s1, s2)` 
+`Dominates(s1, s2)` and `Dominates*(s1, s2)`
 
 ```
 For any statements s1 and s2:
 
-**Dominates(s1, s2)** holds if every execution path from the root node/statement 
-to s2 passes through s1 and s1 is the closest statement to s2 
+**Dominates(s1, s2)** holds if every execution path from the root node/statement
+to s2 passes through s1 and s1 is the closest statement to s2
 on any path from the root.
 
-**Dominates*(s1, s2)** holds if statement s1 directly or indirectly dominates s2. 
+**Dominates*(s1, s2)** holds if statement s1 directly or indirectly dominates s2.
 
-That is to say: 
+That is to say:
 - Dominates(s1, s2) or
 - Dominates(s1, s) and Dominates*(s, s2) for some statement s.
 ```
 
-The PQL syntax for these abstractions is as follows: 
+The PQL syntax for these abstractions is as follows:
 
 ```
 Dominates : 'Dominates' '(' stmtRef ',' stmtRef ')'
@@ -72,7 +72,7 @@ Refer to appendix for an example with sample CFG.
 
 ### Implementation Details
 
-**SP** 
+**SP**
 
 - `DominatorTreeExtractor` would take the CFG as the input and return the dominator tree. The naïve implementation would lead to an `O(n^2)` solution where we perform the Depth First Search after removing each node from the CFG and check which nodes are not visitable. The nodes not visitable are the ones indirectly or directly dominated by the node. After doing it for all the nodes we would get the nodes inside the subtree of each node in the dominator tree.
 - To construct the tree we start from the nodes which have only one node in the subtree which would be the leaf nodes, then to subtrees of size 2 and keep building up the tree until we get the root which has the subtree size equal to all the nodes in the CFG. The root is the root of the dominator tree and is returned by the `DominatorTreeExtractor`.
@@ -87,11 +87,11 @@ Refer to appendix for an example with sample CFG.
 **QPS**
 
 - For the validation process, we mainly need to extend existing constants referenced by validators. This is because we are using a chain of responsibilities pattern, so the existing handlers can handle the syntax and semantic validation of Dominates after adjusting the constants.
-- Link to Milestone 1 QPS Validator Class Diagram to illustrate Chain-of-Responsibilities Pattern: 
+- Link to Milestone 1 QPS Validator Class Diagram to illustrate Chain-of-Responsibilities Pattern:
 
 ![QPS Validator](../img/m2/QPS-Validator.drawio.svg)
 
-- Link to diagram with QPS Abstract Factory Pattern for Clause Evaluators with Dominates: 
+- Link to diagram with QPS Abstract Factory Pattern for Clause Evaluators with Dominates:
 
 ![QPS Evaluator](../img/m2/QPS-Evaluator.svg)
 
@@ -99,7 +99,7 @@ Refer to appendix for an example with sample CFG.
 
 ![API for Dominates](../img/m2/API-Dominates.png)
 
-***(Note: The list of APIs for `Dominates*` will be similar; they have been ommitted for brevity)***
+**_(Note: The list of APIs for `Dominates_` will be similar; they have been ommitted for brevity)\***
 
 - For optimisation, we are grouping the clauses into a `ClauseGroup` class and sorting them within groups using a priority queue which prioritise abstractions with lower overall scores.
 - To factor in `Dominates` abstractions, we mainly need to adjust the constant maps that hold the scores assigned to each `ClauseType`.
@@ -122,17 +122,17 @@ Refer to appendix for an example with sample CFG.
 
 ### Benefits
 
-| Benefit | Explanation |
-| --- | --- |
-| Improved program understanding | Developers can understand which statements are essential for the control flow of the program and which ones are not.  |
-| Code optimization | For example, if a program contains a statement that is dominated by another statement, the dominated statement can often be eliminated without affecting the correctness of the program.  |
-| Bug detection | For example, if a program contains a loop with an exit condition that is not dominated by the loop header, the loop may never terminate, resulting in an infinite loop.  |
+| Benefit                        | Explanation                                                                                                                                                                              |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Improved program understanding | Developers can understand which statements are essential for the control flow of the program and which ones are not.                                                                     |
+| Code optimization              | For example, if a program contains a statement that is dominated by another statement, the dominated statement can often be eliminated without affecting the correctness of the program. |
+| Bug detection                  | For example, if a program contains a loop with an exit condition that is not dominated by the loop header, the loop may never terminate, resulting in an infinite loop.                  |
 
 ### Appendix
 
 ### Example for Dominates
 
-Link to an example demonstrating `Dominates/Dominates*` relationship in a CFG for SIMPLE code: 
+Link to an example demonstrating `Dominates/Dominates*` relationship in a CFG for SIMPLE code:
 
 ![Example of Dominates](../img/m2/extension-example.png)
 
@@ -140,6 +140,6 @@ Link to an example demonstrating `Dominates/Dominates*` relationship in a CFG fo
 
 `Dominates(2,5)`: False because 5 is not the closest node to 2.
 
-`Dominates*(2,5)`: True because every execution path from the root node (1) to node 5 will pass through 2. 
+`Dominates*(2,5)`: True because every execution path from the root node (1) to node 5 will pass through 2.
 
 `Dominates*(3,6)`: False because there is an execution path (1 → 2 → 6) which does not pass through 3.

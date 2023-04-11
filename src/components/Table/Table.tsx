@@ -1,43 +1,44 @@
-import * as React from 'react'
-import Box from '@mui/material/Box'
-import Collapse from '@mui/material/Collapse'
-import IconButton from '@mui/material/IconButton'
-import Table from '@mui/material/Table'
-import TableBody from '@mui/material/TableBody'
-import TableCell from '@mui/material/TableCell'
-import TableContainer from '@mui/material/TableContainer'
-import TableHead from '@mui/material/TableHead'
-import TableRow from '@mui/material/TableRow'
-import Typography from '@mui/material/Typography'
-import Paper from '@mui/material/Paper'
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
-import { ThemeProvider, createTheme, makeStyles } from '@mui/material'
-import { useColorMode } from '@docusaurus/theme-common'
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Collapse from "@mui/material/Collapse";
+import IconButton from "@mui/material/IconButton";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Typography from "@mui/material/Typography";
+import Paper from "@mui/material/Paper";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import { ThemeProvider, createTheme, makeStyles } from "@mui/material";
+import { useColorMode } from "@docusaurus/theme-common";
 
 export interface DataRow {
-  component: string
-  subRowHeaders: string[]
-  subrows: SubRow[]
+  component: string;
+  count: number;
+  subRowHeaders: string[];
+  subrows: SubRow[];
 }
 
 export interface SubRow {
-  subComponent: string
-  method: string
-  returnType: string
-  description?: string
+  subComponent: string;
+  method: string;
+  returnType: string;
+  description?: string;
 }
 
 function Row(props: { row: DataRow }) {
-  const { row } = props
-  const [open, setOpen] = React.useState(false)
+  const { row } = props;
+  const [open, setOpen] = React.useState(false);
   const attributes = row.subRowHeaders.map((header) => {
-    return header.charAt(0).toLowerCase() + header.slice(1).replace(' ', '')
-  })
+    return header.charAt(0).toLowerCase() + header.slice(1).replace(" ", "");
+  });
 
   return (
     <React.Fragment>
-      <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
+      <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
         <TableCell>
           <IconButton
             aria-label="expand row"
@@ -49,6 +50,9 @@ function Row(props: { row: DataRow }) {
         </TableCell>
         <TableCell component="th" scope="row">
           {row.component}
+        </TableCell>
+        <TableCell component="th" scope="row">
+          {row.count} Endpoint(s)
         </TableCell>
         {/* <TableCell align="right">{row.calories}</TableCell>
         <TableCell align="right">{row.fat}</TableCell>
@@ -66,7 +70,7 @@ function Row(props: { row: DataRow }) {
                 <TableHead>
                   <TableRow>
                     {row.subRowHeaders.map((header) => {
-                      return <TableCell>{header}</TableCell>
+                      return <TableCell>{header}</TableCell>;
                     })}
                   </TableRow>
                 </TableHead>
@@ -82,7 +86,7 @@ function Row(props: { row: DataRow }) {
                               subrow[attribute]
                             )}
                           </TableCell>
-                        )
+                        );
                       })}
                     </TableRow>
                   ))}
@@ -93,12 +97,12 @@ function Row(props: { row: DataRow }) {
         </TableCell>
       </TableRow>
     </React.Fragment>
-  )
+  );
 }
 
 export interface CollapsibleTableProp {
-  outer_column_names: string[]
-  outer_rows: DataRow[]
+  outer_column_names: string[];
+  outer_rows: DataRow[];
 }
 
 export default function CollapsibleTable({
@@ -107,18 +111,18 @@ export default function CollapsibleTable({
 }: CollapsibleTableProp) {
   const darkTheme = createTheme({
     palette: {
-      mode: 'dark',
+      mode: "dark",
     },
-  })
+  });
   const lightTheme = createTheme({
     palette: {
-      mode: 'light',
+      mode: "light",
     },
-  })
-  const { colorMode, setColorMode } = useColorMode()
+  });
+  const { colorMode, setColorMode } = useColorMode();
 
   return (
-    <ThemeProvider theme={colorMode == 'dark' ? darkTheme : lightTheme}>
+    <ThemeProvider theme={colorMode == "dark" ? darkTheme : lightTheme}>
       <TableContainer component={Paper}>
         <Table aria-label="collapsible table">
           <TableHead>
@@ -126,10 +130,10 @@ export default function CollapsibleTable({
               <TableCell />
               {outer_column_names.map((name, i) => {
                 return (
-                  <TableCell align={`${i != 0 ? 'right' : 'center'}`}>
+                  <TableCell align={`${i > 1 ? "right" : "center"}`}>
                     {name}
                   </TableCell>
-                )
+                );
               })}
             </TableRow>
           </TableHead>
@@ -141,5 +145,5 @@ export default function CollapsibleTable({
         </Table>
       </TableContainer>
     </ThemeProvider>
-  )
+  );
 }
